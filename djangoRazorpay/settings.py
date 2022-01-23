@@ -21,13 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-&lp-_)l861xj9(f3)5pig8&n)+bsgi!8qa^((@%51h-f$yhk!t'
+# SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['https://django-razorpay.herokuapp.com/',
                  'django-razorpay.herokuapp.com',
-                 'zap.coold.in',
                  '127.0.0.1']
 
 
@@ -79,11 +79,17 @@ WSGI_APPLICATION = 'djangoRazorpay.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd4leph2hlmcfkj',                      
+        # ENGINE = os.environ['ENGINE']        
+        'NAME': 'd4leph2hlmcfkj',              
+        # NAME = os.environ['DB_NAME']        
         'USER': 'zsggzmjasjqiwb',
+        # USER = os.environ['USER']
         'PASSWORD': 'ee7ecfff0d16d051f4298e7785a6fce78eec01b9cb3c4d0d27094afad70609ef',
+        # PASSWORD = os.environ['PASSWORD']
         'HOST': 'ec2-54-236-156-167.compute-1.amazonaws.com',
+        # HOST = os.environ['HOST']
         'PORT': '5432',
+        # PORT = os.environ['PORT']
     }
 }
 
