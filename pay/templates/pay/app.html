@@ -1,15 +1,15 @@
 {% extends 'pay/app-base.html' %}
 
 {% load static %}
-
+<link rel="stylesheet" href="{% static 'pay/css/app.css' %}">
 
 {% block title %} Avinash Kumar {% endblock %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'pay/css/app.css' %}">
 <!-- C:\Users\avina\PycharmProjects\Django-Razorpay\djangoRazorpay\pay\static\css\app.css -->
 {% endblock %}
 {% block head %} {% endblock %}
 {% block body %}
+
 <style>
     @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext");
 
@@ -377,7 +377,7 @@
         max-width: 80%;
         margin-left: auto;
         margin-right: auto;
-        height: 100%;
+        height: auto;
         background: #fff;
         border-radius: 10px;
         padding: 35px;
@@ -431,6 +431,26 @@
         border-color: #8a979e;
     }
 
+        .profile-card input {
+        width: 100%;
+        resize: none;
+        /*height: 210px;*/
+        margin-bottom: 20px;
+        border: 2px solid #dcdcdc;
+        border-radius: 10px;
+        padding: 15px 20px;
+        color: #324e63;
+        font-weight: 500;
+        font-family: "Quicksand", sans-serif;
+        outline: none;
+        transition: all 0.3s;
+    }
+
+    .profile-card input:focus {
+        outline: none;
+        border-color: #8a979e;
+    }
+
     .profile-card__overlay {
         width: 100%;
         height: 100%;
@@ -453,8 +473,8 @@
             </div>
 
             <div class="profile-card__cnt js-profile-cnt">
-                <div class="profile-card__name">Vipin Rock</div>
-                <div class="profile-card__txt">Django Full Stack Developer <strong></strong></div>
+                <div class="profile-card__name">Avinash Kumar</div>
+                <div class="profile-card__txt">Django Full Stack Web Developer<strong></strong></div>
                 <div class="profile-card-loc">
                     <span class="profile-card-loc__icon">
                         <svg class="icon">
@@ -564,6 +584,31 @@
 
             <div class="profile-card-message js-message">
                 <form class="profile-card-form">
+
+                    <div class="profile-card-form__container">
+                       <input type="email" name="email" placeholder="Email">
+                    </div>
+
+                    <div class="profile-card-form__container">
+                        <input type="password" name="password" placeholder="Password">
+                    </div>
+
+                    <div class="profile-card-form__bottom">
+                        <button class="profile-card__button button--blue js-message-close">
+                            Login
+                        </button>
+
+                        <button class="profile-card__button button--gray js-message-close">
+                            Cancel
+                        </button>
+                    </div>
+
+                </form>
+                <div class="profile-card__overlay js-message-close"></div>
+            </div>
+
+            <!-- <div class="profile-card-message js-message">
+                <form class="profile-card-form">
                     <div class="profile-card-form__container">
                         <textarea placeholder="Say something..."></textarea>
                     </div>
@@ -580,7 +625,7 @@
 
                 </form>
                 <div class="profile-card__overlay js-message-close"></div>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -682,6 +727,7 @@
 </section>
 {% endblock %}
 
+
 {% block js %}
 <script>
     var messageBox = document.querySelector('.js-message');
@@ -703,3 +749,4 @@
     });
 </script>
 {% endblock %}
+<script src="{% static 'js/app.js' %}"></script>
