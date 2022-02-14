@@ -136,7 +136,7 @@
                 </div> -->
                 {% if user.is_authenticated %}
                 <div class="profile-card-ctr">
-                    <div class="profile-card__txt">{{user.email}}<strong></strong></div>
+                    <div class="profile-card__txt">Welcome <strong>{{user.username}} 🙂</strong></div>
                     <a class="profile-card__button button--blue" href="{% url 'logout' %}">Logout</a>
                 </div>
                 {% else %}
