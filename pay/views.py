@@ -19,14 +19,20 @@ def Login(request):
         username = request.POST['username']
         password = request.POST['password']
         # print(username, password,"username........, password.......")
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            print("Login Successful")
-            return render(request, 'pay/app.html',{'user':user})
+        if User.objects.filter(username=username).exists():
+            print("User exists......")
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                print("Login Successful")
+                return render(request, 'pay/app.html',{'user':user})
+            else:
+                print("Login Failed")
+            return render(request, 'pay/app.html')
         else:
-            print("Login Failed")
-        return render(request, 'pay/app.html')
+            print("User does not exist......")
+            user = User.objects.create_user(username=username, password=password)
+            return render(request, 'pay/app.html')
 
 def Logout(request):
     logout(request)

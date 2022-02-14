@@ -137,7 +137,7 @@
                 {% if user.is_authenticated %}
                 <div class="profile-card-ctr">
                     <div class="profile-card__txt">{{user.email}}<strong></strong></div>
-                    <button class="profile-card__button button--blue">Logout</button>
+                    <a class="profile-card__button button--blue" href="{% url 'logout' %}">Logout</a>
                 </div>
                 {% else %}
                 <div class="profile-card-ctr">
@@ -160,7 +160,7 @@
                     <div class="profile-card-form__bottom">
                         <!-- <input type="submit" value="Login" > -->
                         <button type="submit" class="profile-card__button button--blue">
-                                Login
+                                Login/Register
                         </button>
                         <button class="profile-card__button button--gray js-message-close">
                             Cancel
