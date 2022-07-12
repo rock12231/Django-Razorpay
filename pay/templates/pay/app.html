@@ -169,7 +169,9 @@
                 </form>
                 <div class="profile-card__overlay js-message-close"></div>
             </div>
-
+            <div>
+                <button onclick="fun();">Home</button>
+            </div>
             <!-- <div class="profile-card-message js-message">
                 <form class="profile-card-form">
                     <div class="profile-card-form__container">
@@ -293,4 +295,43 @@
 
 {% block js %}
 <script src="{% static 'pay/js/app.js' %}"></script>
+<script>
+    
+        function fun() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your imaginary file is safe :)',
+                        'error'
+                    )
+                }
+            })
+        }
+</script>
 {% endblock %}

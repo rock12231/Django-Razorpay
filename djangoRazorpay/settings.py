@@ -26,9 +26,11 @@ SECRET_KEY = 'django-insecure-&lp-_)l861xj9(f3)5pig8&n)+bsgi!8qa^((@%51h-f$yhk!t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://django-razorpay.herokuapp.com/',
-                 'django-razorpay.herokuapp.com',
-                 '127.0.0.1']
+ALLOWED_HOSTS = ['*',
+                'https://django-razorpay.herokuapp.com/',
+                'django-razorpay.herokuapp.com',
+                '127.0.0.1'
+                ]
 
 
 # Application definition
